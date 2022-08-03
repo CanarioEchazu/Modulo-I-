@@ -10,10 +10,117 @@ Implementar la clase LinkedList, definiendo los siguientes métodos:
   search(isEven), donde isEven es una función que retorna true cuando recibe por parámetro un número par, busca un nodo cuyo valor sea un número par.
   En caso de que la búsqueda no arroje resultados, search debe retornar null.
 */
+function LinkedList() {
+  this.head = null;
+  this._length = 0;
+  }
+function Node(value){
+  this.dato = value;
+  this.next = null;
+  }
+  
+LinkedList.prototype.add = function(data){
+  let node = new Node(data);
+    //si lista vacia
+    if(this.head === null){
+      this.head = node;
+  }else{            //si ya tiene nodos
+    let actual = this.head;
+    while(actual.next){
+      actual = actual.next;
+  }
+  actual.next = node;
+  }
+  this._length++;
+  return node;
+  }
 
-function LinkedList() {}
+/*ESTO ES LO QUE HABIA ENCONTRADO EN GOOGLE
+** * * * * * *  *
+  LinkedList.prototype.deleteFirst = function(){
+    if (this._length === 0) return console.log('Es una lista vacia');
+    else{
+    let aux = this.head.dato;
+    this.head = this.head.next;
+    this._length--;
+    console.log("Elemnt elim: " +aux);
+    }
+    }
+    *** * * *  F* * * * *
+     HASTA AQCÁ
+     */
 
-function Node(value) {}
+  LinkedList.prototype.remove = function(){
+    // pseudo código:
+    // me fijo si hay head, o si solo tiene 1 nodo
+    // recorrer hasta llegar al penúltimo nodo
+    // a este nodo le dgo qeu nul, así pierdo la referencia del que tenia antes.
+
+    if (!this.head) return false;
+
+    if (this.head.next === null){
+      let caja = this.head;
+      this.head = null;
+      return aux.value 
+    } else {
+      let current = this.head;
+      while (current.next.next === !null) {
+        current = current.next
+      }
+      let tomarInformacion = current.next.value;
+      current.next = null;
+      return tomarInformacion;
+    }
+
+  }
+
+  LinkedList.prototype.search = function (algo) {
+    if (!this.head) return null;
+
+    if (typeof algo !== "function"){  // si el argumento que  recibimos no es una funcion.
+      callBack = function(data){
+        return data === algo;
+      };
+    
+
+
+    }else {
+      callBack = algo;
+    }
+
+    let current = this.head;
+    while (current.next) {
+
+     if(current.value === algo){
+        return (current.value)          
+      } else {
+        current = current.next;
+      }
+      current = current.next;
+    }
+  }
+
+  /*
+  
+var lista1 = new LinkedList();
+lista1.add('Henrry');
+lista1.add(11111);
+lista1.add(6);
+lista1.add(5);
+lista1.add(7);
+lista1.add(3);
+lista1.add(4);
+console.log (
+  lista1.search (function (dato) {
+    if (dato /2 === 0) {
+      return true;
+    }
+    return false;
+  }
+  )
+)
+*/
+
 
 /*
 Implementar la clase HashTable.
@@ -30,7 +137,18 @@ La clase debe tener los siguientes métodos:
 Ejemplo: supongamos que quiero guardar {instructora: 'Ani'} en la tabla. Primero puedo chequear, con hasKey, si ya hay algo en la tabla con el nombre 'instructora'; luego, invocando set('instructora', 'Ani'), se almacenará el par clave-valor en un bucket específico (determinado al hashear la clave)
 */
 
-function HashTable() {}
+function HashTable() {
+
+  this.buckets = [],
+  this.numBuckets = 0
+
+  let sum = 0;
+
+for (let i = 0; i < key.length; i++) {
+  sum += key.charCodeAt(i);
+  }
+  return sum % this.numBuckets;
+};
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------

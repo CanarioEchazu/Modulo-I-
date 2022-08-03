@@ -1,22 +1,29 @@
-AND
+/*var aux = 'Hola';
 
-0 0 --> 0
-0 1 --> 0
-1 0 --> 0
-1 1 --> 1
+function a() {
+    console.log (aux);
+    aux = 'Hello!';
+}
 
-OR
+function b() {
+    var aux = 'chau'
+    console.log (aux);
+}
+a ();
+b ();
+console.log(aux);
 
-0 0 --> 0
-1 0 --> 1
-0 1 --> 1
-1 1 --> 1
+const pepe = () => 5;
+console.log (pepe ());*/
+console.log (this)
 
-XOR // eXclusive OR
-
-0 0 --> 0
-1 0 --> 1
-0 1 --> 1
-1 1 --> 0
-
-/////////////////////////////
+var instructor = "Tony";
+let pm = "Franco";
+if (true) {
+    var instructor = "The Flash";
+    let pm = "Reverse Flash";
+    console.log(instructor);
+    console.log(pm);
+}
+console.log(instructor);
+console.log(pm);
